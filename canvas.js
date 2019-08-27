@@ -148,7 +148,6 @@ var config = {
 
    // Click listener
    elem.addEventListener("click", function (event) {
-       console.log(canvas);
     var x = event.clientX,
         y = event.clientY;
     console.log(x,y);
