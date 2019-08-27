@@ -1,4 +1,4 @@
-var canvas = document.getElementById("canvas"),
+var canvas = document.getElementById('canvas'),
     ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
@@ -12,6 +12,8 @@ window.requestAnimFrame = (function() {
           window.setTimeout(callback, 1000 / 60);
        };
   })();
+
+var elem = document.getElementById("main");
 
 var angle = 0;
 
@@ -104,6 +106,7 @@ var config = {
   
   var initParticles = function (numParticles, x, y) {
     //r = Math.ceil(Math.random() * 20 + Math.random());
+    console.log(canvas);
       for (let i = 0; i < numParticles; i++) {
           particles.push(new Particle(x, y));
       }
@@ -133,7 +136,7 @@ var config = {
   };
   
   // Mouse move listener
-  document.body.addEventListener("mousemove", function (event) {
+  elem.addEventListener("mousemove", event => {
       var x = event.clientX,
           y = event.clientY;
     particles.forEach ((p) => {
@@ -144,14 +147,16 @@ var config = {
   }, false);
 
    // Click listener
-  document.body.addEventListener("click", function (event) {
+   elem.addEventListener("click", function (event) {
+       console.log(canvas);
     var x = event.clientX,
         y = event.clientY;
+    console.log(x,y);
   particles.push(new Particle(x, y));
-});
+}, false);
 
     // Touch start listener
-    canvas.addEventListener("touchstart", function (event) {
+    elem.addEventListener("touchstart", function (event) {
         var touch = event.touches[0];
         var x = touch.clientX,
             y = touch.clientY;
@@ -160,7 +165,7 @@ var config = {
 }, false);
 
     // Touch move listener
-    canvas.addEventListener("touchmove", function (event) {
+    elem.addEventListener("touchmove", function (event) {
         var touch = event.touches[0];
         var x = touch.clientX,
             y = touch.clientY;
