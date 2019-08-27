@@ -159,7 +159,6 @@ var config = {
         var touch = event.touches[0];
         var x = touch.clientX,
             y = touch.clientY;
-            event.preventDefault();
     particles.push(new Particle(x, y));
 }, false);
 
