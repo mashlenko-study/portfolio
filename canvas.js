@@ -151,17 +151,20 @@ var config = {
 });
 
     // Touch start listener
-    document.body.addEventListener("touchstart", function (event) {
-        var x = event.clientX,
-            y = event.clientY;
+    canvas.addEventListener("touchstart", function (event) {
+        var touch = event.touches[0];
+        var x = touch.clientX,
+            y = touch.clientY;
+            event.preventDefault();
     particles.push(new Particle(x, y));
 }, false);
 
     // Touch move listener
-    document.body.addEventListener("touchmove", function (event) {
+    canvas.addEventListener("touchmove", function (event) {
         var touch = event.touches[0];
         var x = touch.clientX,
             y = touch.clientY;
+            event.preventDefault();
     particles.forEach ((p) => {
         if(p.x>x-70 && p.x<x+70 && p.y>y-70 && p.y<y+70) {
         p.c = 'rgba(175,238,238)';
