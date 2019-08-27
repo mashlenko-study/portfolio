@@ -1,4 +1,4 @@
-var canvas = document.querySelector("#canvas"),
+var canvas = document.getElementById("canvas"),
     ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
@@ -132,7 +132,7 @@ var config = {
     window.requestAnimFrame(frame);
   };
   
-  // Click listener
+  // Mouse move listener
   document.body.addEventListener("mousemove", function (event) {
       var x = event.clientX,
           y = event.clientY;
@@ -141,9 +141,33 @@ var config = {
         p.c = 'rgba(175,238,238)';
     }
     })
-  });
+  }, false);
 
+   // Click listener
+  document.body.addEventListener("click", function (event) {
+    var x = event.clientX,
+        y = event.clientY;
+  particles.push(new Particle(x, y));
+});
 
+    // Touch start listener
+    document.body.addEventListener("touchstart", function (event) {
+        var x = event.clientX,
+            y = event.clientY;
+    particles.push(new Particle(x, y));
+}, false);
+
+    // Touch move listener
+    document.body.addEventListener("touchmove", function (event) {
+        var touch = event.touches[0];
+        var x = touch.clientX,
+            y = touch.clientY;
+    particles.forEach ((p) => {
+        if(p.x>x-70 && p.x<x+70 && p.y>y-70 && p.y<y+70) {
+        p.c = 'rgba(175,238,238)';
+    }
+    })
+    }, false);
 
  function cleanUp () {
     particles = [];
