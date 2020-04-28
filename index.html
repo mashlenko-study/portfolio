@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="I’m a Front-End Web Developer based in Sunnyvale, California.">
+    <meta name="description" content="I’m a Front-End Web Developer based in Santa Clara, California.">
+    <meta name="keywords"
+		content="Front-end developer Dine Mashlenko, mobile-first responsive web design, web templates, Flat Web Templates, Android Compatible web design,  iOS Compatible web design, Smartphone Compatible web design, webdesigns for iPhone, Samsung, Google Pixel, Nokia, LG, Xiaomi, SonyEricsson, Motorola web design" />
     <title>Dine Mashlenko Front-End Developer Portfolio</title>
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre" rel="stylesheet"> 
@@ -41,7 +43,7 @@ $(document).ready(function(){
 <body>
     <section id="main">
         <div class="canvas">
-            <canvas id="canvas" width = "300" height="400">
+            <canvas id="canvas" width = "300" height="400"></canvas>
         </div>
 
         <div class="modal flex_column">
@@ -56,10 +58,10 @@ $(document).ready(function(){
         </div>
     </section>
     
-    <section id="portfolio" class="flex_column">
+    <section id="portfolio" class="portfolio flex_column">
 
         <div class="container">
-                <nav class="top_navbar">
+                <nav class="mobnav">
                     <a href="#main" class="active">Home</a>
                     <div id="mobnav_links">
                         <a href="https://www.linkedin.com/in/dinekhakimova/">
@@ -76,7 +78,7 @@ $(document).ready(function(){
                         <i class="fa fa-bars"></i>
                     </a>
                 </nav>
-                <div class="nav_bar flex_column">
+                <section class="about-me flex_column">
                             <img class="biopic" src="biopic2.jpg" width=150px height="150px">
                             <div class="bio_text"> 
                                 <span class="highlight">Dine Mashlenko</span><br>
@@ -90,7 +92,6 @@ $(document).ready(function(){
                                 <div class="icon_text"> 
                                 E-mail
                                 </div>
-                                
                             </a>
                             <a href="https://www.linkedin.com/in/dinekhakimova/" class="reach">
                                     <div class="icon_container">
@@ -108,15 +109,27 @@ $(document).ready(function(){
                                 <div class="icon_text"> 
                                     GitHub
                                 </div>
-                                    
                             </a>
-                </div>
+                </section>
             <h2>My portfolio</h2>
             <ul>
                 <li>
+                    <a class="portfolio_link" href="https://divby0jutsu.github.io/coming_soon_banner_template/">
+                            <div class="image_placeholder">
+                                <img src="./projects/banner_template.jpg" class="works_img" alt="Coming soon banner web template">
+                            </div>
+                            <div class="thumbnail_hover banner">
+                                <div class="thumbnail_text">
+                                    <h3>Coming soon banner web template</h3>
+                                    Mobile-first responsive web template. HTML5, CSS3, jQuery.
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                <li>
                     <a class="portfolio_link" href="https://divby0jutsu.github.io/budget_app/">
                         <div class="image_placeholder">
-                            <img src="./projects/budget.jpg" class="works_img">
+                            <img src="./projects/budget.jpg" class="works_img" alt="Budget app">
                         </div>
                         <div class="thumbnail_hover budget">
                                 <div class="thumbnail_text">
@@ -125,39 +138,23 @@ $(document).ready(function(){
                                 </div>
                         </div>
                     </a>
-                            
                 </li>
                 <li>
                     <a class="portfolio_link" href="https://divby0jutsu.github.io/library_landing_page/">
                         <div class="image_placeholder">
-                            <img src="./projects/library.jpg" class="works_img">
+                            <img src="./projects/library.jpg" class="works_img" alt="Library landing page">
                         </div>
                         <div class="thumbnail_hover library">
-                                <div class="thumbnail_text">
-                                    <h3>Library landing page</h3>
-                                    Pure CSS, HTML
-                                </div>
+                            <div class="thumbnail_text">
+                                <h3>Library landing page</h3>
+                                Pure CSS, HTML
                             </div>
+                        </div>
                     </a>
-                    
-                </li>
-                <li>
-                        <a class="portfolio_link" href="https://divby0jutsu.github.io/tribute_page/">
-                            <div class="image_placeholder">
-                                <img src="./projects/tribute.jpg" class="works_img">
-                            </div>
-                            <div class="thumbnail_hover tribute">
-                                    <div class="thumbnail_text">
-                                        <h3>Basic tribute page</h3>
-                                        Pure CSS, HTML. An exercise in grids and responsive design.
-                                    </div>
-                                </div>
-                        </a>
                 </li>
             </ul>
         </div>
     </section>
-
     <script type="text/javascript" src="./canvas.js"></script>
 </body>
 </html>

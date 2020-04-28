@@ -1,4 +1,4 @@
-var canvas = document.querySelector("#canvas"),
+var canvas = document.getElementById('canvas'),
     ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
@@ -12,6 +12,8 @@ window.requestAnimFrame = (function() {
           window.setTimeout(callback, 1000 / 60);
        };
   })();
+
+var elem = document.getElementById("main");
 
 var angle = 0;
 
@@ -104,6 +106,7 @@ var config = {
   
   var initParticles = function (numParticles, x, y) {
     //r = Math.ceil(Math.random() * 20 + Math.random());
+    console.log(canvas);
       for (let i = 0; i < numParticles; i++) {
           particles.push(new Particle(x, y));
       }
@@ -132,8 +135,8 @@ var config = {
     window.requestAnimFrame(frame);
   };
   
-  // Click listener
-  document.body.addEventListener("mousemove", function (event) {
+  // Mouse move listener
+  elem.addEventListener("mousemove", event => {
       var x = event.clientX,
           y = event.clientY;
     particles.forEach ((p) => {
@@ -141,9 +144,36 @@ var config = {
         p.c = 'rgba(175,238,238)';
     }
     })
-  });
+  }, false);
 
+   // Click listener
+   elem.addEventListener("click", function (event) {
+    var x = event.clientX,
+        y = event.clientY;
+    console.log(x,y);
+  particles.push(new Particle(x, y));
+}, false);
 
+    // Touch start listener
+    elem.addEventListener("touchstart", function (event) {
+        var touch = event.touches[0];
+        var x = touch.clientX,
+            y = touch.clientY;
+    particles.push(new Particle(x, y));
+}, false);
+
+    // Touch move listener
+    elem.addEventListener("touchmove", function (event) {
+        var touch = event.touches[0];
+        var x = touch.clientX,
+            y = touch.clientY;
+            event.preventDefault();
+    particles.forEach ((p) => {
+        if(p.x>x-70 && p.x<x+70 && p.y>y-70 && p.y<y+70) {
+        p.c = 'rgba(175,238,238)';
+    }
+    })
+    }, false);
 
  function cleanUp () {
     particles = [];
